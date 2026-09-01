@@ -147,6 +147,39 @@ section {
   font-size: 0.9rem;
 }
 
+/* Genre tabs */
+
+.genre-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.genre-tab {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.genre-tab:hover {
+  border-color: var(--amber);
+  color: var(--cream);
+}
+
+.genre-tab.active {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--bg);
+  font-weight: 600;
+}
+
 /* Tracklist */
 
 .tracklist {
@@ -158,7 +191,7 @@ section {
   counter-increment: track;
   display: flex;
   align-items: baseline;
-  gap: 16px;
+  gap: 14px;
   padding: 14px 0;
   border-bottom: 1px solid var(--line);
 }
@@ -181,9 +214,23 @@ section {
 
 .track-artist {
   color: var(--muted);
-  margin-left: auto;
   font-size: 0.92rem;
-  text-align: right;
+}
+
+.track-genre {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--rose);
+  border: 1px solid var(--line);
+  padding: 3px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.empty-msg {
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 10px 0;
 }
 
 /* Add form */
@@ -191,11 +238,23 @@ section {
 .add-form {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
-.add-form input {
+.add-form input[type="text"] {
   flex: 1;
+  min-width: 200px;
   padding: 13px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--cream);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.add-form select {
+  padding: 13px 12px;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -208,7 +267,8 @@ section {
   color: var(--muted);
 }
 
-.add-form input:focus {
+.add-form input:focus,
+.add-form select:focus {
   outline: none;
   border-color: var(--amber);
 }
@@ -231,7 +291,8 @@ section {
 }
 
 .add-form button:focus-visible,
-.add-form input:focus-visible {
+.add-form input:focus-visible,
+.add-form select:focus-visible {
   outline: 2px solid var(--amber);
   outline-offset: 2px;
 }
@@ -280,14 +341,16 @@ footer {
     height: 150px;
     align-self: center;
   }
-  .track-artist {
-    text-align: left;
-    margin-left: 0;
-  }
   .tracklist li {
     flex-wrap: wrap;
   }
+  .track-genre {
+    margin-left: 38px;
+  }
   .add-form {
     flex-direction: column;
+  }
+  .add-form select {
+    width: 100%;
   }
 }
