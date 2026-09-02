@@ -18,39 +18,67 @@
       <p class="kicker">um cantinho de vinil</p>
       <h1>Discoteca</h1>
       <p class="lede">As músicas que eu volto a ouvir, guardadas aqui como quem monta uma pilha de discos ao lado do toca-discos.</p>
+      <button id="btn-sorteio" class="btn-sorteio">🎲 Surpreenda-me</button>
     </div>
     <div class="record" id="record" aria-hidden="true">
-      <div class="record-ring"></div>
       <div class="record-label">
         <span>33⅓</span>
       </div>
-      <div class="tonearm" id="tonearm"></div>
     </div>
   </header>
+
+  <div class="sorteio-card" id="sorteio-card" hidden>
+    <p class="sorteio-label">tocando agora, por sorte</p>
+    <p class="sorteio-musica" id="sorteio-musica"></p>
+    <button class="sorteio-fechar" id="sorteio-fechar" aria-label="Fechar">×</button>
+  </div>
 
   <main>
 
     <section class="about">
       <h2>Sobre esta pilha</h2>
-      <p>Este espaço não é uma lista de sucessos — é o que fica tocando na cabeça depois que a música já acabou. Discos que marcaram uma fase, uma viagem, uma madrugada específica. Vá adicionando os seus abaixo.</p>
+      <p>Este espaço não é uma lista de sucessos — é o que fica tocando na cabeça depois que a música já acabou. Discos de estilos diferentes, cada um guardado por um motivo. Vá adicionando os seus abaixo.</p>
     </section>
 
     <section class="tracklist-section">
       <div class="section-head">
         <h2>Faixas</h2>
-        <span class="count" id="track-count">3 faixas</span>
+        <span class="count" id="track-count">0 faixas</span>
       </div>
-      <ol class="tracklist" id="lista-musicas">
-        <li><span class="track-title">Nome da Música</span><span class="track-artist">Artista</span></li>
-        <li><span class="track-title">Nome da Música</span><span class="track-artist">Artista</span></li>
-        <li><span class="track-title">Nome da Música</span><span class="track-artist">Artista</span></li>
-      </ol>
+
+      <div class="controls-row">
+        <input type="text" id="busca" class="busca-input" placeholder="Buscar por música ou artista...">
+        <button class="fav-toggle" id="fav-toggle" title="Mostrar só favoritas">★ favoritas</button>
+      </div>
+
+      <div class="genre-tabs" id="genre-tabs">
+        <button class="genre-tab active" data-genre="todos">Todos</button>
+      </div>
+
+      <ol class="tracklist" id="lista-musicas"></ol>
     </section>
 
     <section class="add-section">
       <h2>Colocar mais um disco na pilha</h2>
       <form id="form-musica" class="add-form">
         <input type="text" id="input-musica" placeholder="música — artista" autocomplete="off">
+        <select id="select-genero">
+          <option value="MPB">MPB</option>
+          <option value="Rock">Rock</option>
+          <option value="Pop">Pop</option>
+          <option value="Samba">Samba</option>
+          <option value="Forró">Forró</option>
+          <option value="Funk">Funk</option>
+          <option value="Sertanejo">Sertanejo</option>
+          <option value="Eletrônica">Eletrônica</option>
+          <option value="Rap">Rap</option>
+          <option value="Reggae">Reggae</option>
+          <option value="Jazz">Jazz</option>
+          <option value="Bossa Nova">Bossa Nova</option>
+          <option value="Axé">Axé</option>
+          <option value="Indie">Indie</option>
+          <option value="Outro">Outro</option>
+        </select>
         <button type="submit">Adicionar</button>
       </form>
       <p class="hint" id="hint"></p>
